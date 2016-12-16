@@ -36,6 +36,7 @@ public class aFile {
 	private long size=0;
 	private String link_name="";
 	private byte link_indicator='0';
+	private long filePosition=0;
 	
 	private boolean ustar_extend=true;
 	byte[] ext = null; // 255 bytes of extended data
@@ -54,11 +55,11 @@ public class aFile {
 	private static final String MAGIC_GNUTAR = "GNUtar ";
 	
 	public static long tarFilePad(long size) {
-		return size%512;
+		return 512-(size%512);
 	}
 	
 	public static long tarFilePadTotal(long size) {
-		return size+tarFilePad(size);
+		return ((size/512)*512)+512;
 	}
 	
 	private static long tarChecksum(long start, byte[] tarHeader) {
@@ -68,7 +69,7 @@ public class aFile {
 		return checksum;
 	}
 	
-	public aFile(byte[] tarHeader) throws UnsupportedEncodingException, Exception {
+	public aFile(byte[] tarHeader) throws UnsupportedEncodingException, aFileException {
 		readTarHeader(tarHeader);
 	}
 	
@@ -189,6 +190,14 @@ public class aFile {
 	
 	public byte getLinkIndicator() {
 		return this.link_indicator;
+	}
+	
+	void setFilePosition(long l) {
+		this.filePosition=l;
+	}
+	
+	long getFilePosition() {
+		return this.filePosition;
 	}
 	
 	private String doZeros(byte[] b) {

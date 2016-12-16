@@ -2,9 +2,7 @@
 Simple pure Java implementation of manipulating tar files
 
 ### TODO
-* Read tar files
 * Bug testing
-* Reach basic practical functionality
 
 ### License
  

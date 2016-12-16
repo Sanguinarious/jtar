@@ -66,11 +66,11 @@ public class PermMask {
 	}
 	
 	public String getOctal() {
-		return String.format("%o", mask);
+		return String.format("%o", this.mask);
 	}
 	
 	public String getOctalTar() {
-		return String.format("%07o", mask);
+		return String.format("%07o", this.mask);
 	}
 	
 	public void setOctal(String m) {
@@ -79,63 +79,63 @@ public class PermMask {
 	}
 	
 	public boolean userCanRead() {
-		if(this.USER_READ == (mask&this.USER_READ))
+		if(this.USER_READ == (this.mask&this.USER_READ))
 			return true;
 		else
 			return false;
 	}
 	
 	public boolean userCanWrite() {
-		if(this.USER_WRITE == (mask&this.USER_WRITE))
+		if(this.USER_WRITE == (this.mask&this.USER_WRITE))
 			return true;
 		else
 			return false;
 	}
 	
 	public boolean userCanExecute() {
-		if(this.USER_EXECUTE == (mask&this.USER_EXECUTE))
+		if(this.USER_EXECUTE == (this.mask&this.USER_EXECUTE))
 			return true;
 		else
 			return false;
 	}
 	
 	public boolean groupCanRead() {
-		if(this.GROUP_READ == (mask&this.GROUP_READ))
+		if(this.GROUP_READ == (this.mask&this.GROUP_READ))
 			return true;
 		else
 			return false;
 	}
 	
 	public boolean groupCanWrite() {
-		if(this.GROUP_WRITE == (mask&this.GROUP_WRITE))
+		if(this.GROUP_WRITE == (this.mask&this.GROUP_WRITE))
 			return true;
 		else
 			return false;
 	}
 	
 	public boolean groupCanExecute() {
-		if(this.GROUP_EXECUTE == (mask&this.GROUP_EXECUTE))
+		if(this.GROUP_EXECUTE == (this.mask&this.GROUP_EXECUTE))
 			return true;
 		else
 			return false;
 	}
 	
 	public boolean othersCanRead() {
-		if(this.OTHERS_READ == (mask&this.OTHERS_READ))
+		if(this.OTHERS_READ == (this.mask&this.OTHERS_READ))
 			return true;
 		else
 			return false;
 	}
 	
 	public boolean othersCanWrite() {
-		if(this.OTHERS_WRITE == (mask&this.OTHERS_WRITE))
+		if(this.OTHERS_WRITE == (this.mask&this.OTHERS_WRITE))
 			return true;
 		else
 			return false;
 	}
 	
 	public boolean othersCanExecute() {
-		if(this.OTHERS_EXECUTE == (mask&this.OTHERS_EXECUTE))
+		if(this.OTHERS_EXECUTE == (this.mask&this.OTHERS_EXECUTE))
 			return true;
 		else
 			return false;
