@@ -25,10 +25,10 @@ package com.occultusterra.jtar;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 
-public class TarWritter implements AutoCloseable {
+public class TarWriter implements AutoCloseable {
 	RandomAccessFile f;
 	
-	public TarWritter(String filename) throws IOException {
+	public TarWriter(String filename) throws IOException {
 		this.f = new RandomAccessFile(filename, "rw");
 		f.seek(f.length());
 	}
